@@ -1,0 +1,50 @@
+{% set name = "betterbib" %}
+{% set version = "4.0.0" %}
+
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/betterbib-{{ version }}.tar.gz
+  sha256: a0662a38d8dbb18ae914e5abfc36bb242314a69a54533507150488878483f791
+
+build:
+  number: 0
+  skip: true   # [py<37]
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - appdirs
+    - importlib-metadata  # [py<38]
+    - latexcodec
+    - pybtex >=0.19.0
+    - pyenchant
+    - python
+    - requests
+    - requests-cache
+    - rich
+    - unidecode
+
+test:
+  imports:
+    - betterbib
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/nschloe/betterbib
+  summary: Better BibTeX data
+  license: GPL-3.0
+  license_file: LICENSE.txt
+
+extra:
+  recipe-maintainers:
+    - pdiercks
