@@ -1,5 +1,8 @@
 # conda-recipes
 A collection of conda recipes to build conda packages.
+The recipes are automatically generated using [doit](https://pydoit.org/) and [grayskull](https://conda-forge.org/blog/posts/2020-03-05-grayskull/).
+For now, only recipes for packages available on pypi are generated.
+Simply add a package and its version to `dodo.py` and run `doit`.
 
 ## How to build a conda package
 
