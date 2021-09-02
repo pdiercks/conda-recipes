@@ -4,6 +4,18 @@ The recipes are automatically generated using [doit](https://pydoit.org/) and [g
 For now, only recipes for packages available on pypi are generated.
 Simply add a package and its version to `dodo.py` and run `doit`.
 
+## Using grayskull to generate a recipe
+
+If the package is available on `pypi`, [grayskull](https://conda-forge.org/blog/posts/2020-03-05-grayskull/) can be used to generate the recipe.
+Install:
+```
+conda install --channel conda-forge grayskull
+```
+Generate the recipe:
+```
+grayskull pypi <package-name>==<version>
+```
+
 ## How to build a conda package
 
 From the [Conda-Build Documentation](https://docs.conda.io/projects/conda-build/en/latest/index.html):
@@ -34,14 +46,21 @@ At some point conda also complains that `conda-verify` should be installed:
 conda install conda-verify
 ```
 
-## Using grayskull to generate a recipe
+## Uploading the package
 
-If the package is available on `pypi`, [grayskull](https://conda-forge.org/blog/posts/2020-03-05-grayskull/) can be used to generate the recipe.
-Install:
+The client is needed for uploading packages to your own channel.
+If you do not have an account yet, create one on [Anaconda Cloud](https://anaconda.org).
+
+Install the client:
 ```
-conda install --channel conda-forge grayskull
+conda install anaconda-client
 ```
-Generate the recipe:
+You can login via `anaconda login` and test your login with the whoami command
 ```
-grayskull pypi <package-name>==<version>
+anaconda whoami
 ```
+Uploading a package:
+```
+anaconda upload path/to/package-build
+```
+In my case (using miniconda on linux) the package build is located somewhere under `$HOME/miniconda3/conda-bld/`.
