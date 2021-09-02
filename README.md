@@ -33,7 +33,7 @@ conda install conda-verify
 
 ## Using grayskull to generate a recipe
 
-If the package is available on `pypi`, `grayskull` can be used to generate the recipe.
+If the package is available on `pypi`, [grayskull](https://conda-forge.org/blog/posts/2020-03-05-grayskull/) can be used to generate the recipe.
 Install:
 ```
 conda install --channel conda-forge grayskull
