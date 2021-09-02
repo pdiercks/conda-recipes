@@ -7,6 +7,7 @@ PACKAGES = {
         "pygmsh": "6.1.1",
         "neovim-remote": "2.4.0",
         "betterbib": "4.0.0",
+        "pyenchant": "3.2.1",
     }
 }
 
