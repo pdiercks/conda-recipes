@@ -40,5 +40,5 @@ conda install --channel conda-forge grayskull
 ```
 Generate the recipe:
 ```
-grayskull pypi <package-name>
+grayskull pypi <package-name>==<version>
 ```
